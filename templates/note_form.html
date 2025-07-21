@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if note %}Edit Note{% else %}New Note{% endif %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{% if note %}Edit Note{% else %}New Note{% endif %}</h1>
+        <form method="post">
+            <textarea name="content" rows="8" required>{{ note.content if note else '' }}</textarea><br>
+            <button type="submit">{% if note %}Update{% else %}Create{% endif %} Note</button>
+            <a href="{{ url_for('index') }}">Cancel</a>
+        </form>
+    </div>
+</body>
+</html> 
